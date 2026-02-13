@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моєї Анаіди 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        
+        <!-- Сцена 0: Вступне питання -->
+        <div class="scene active" id="intro">
+            <h1 class="title">Для Анаіди 💕</h1>
+            <div class="story-text">
+                <p class="big-question">Ти готова пройти всю історію зі мною ЗНОВУ?</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showScene('scene1')">Так! ❤️</button>
+                <button class="btn btn-secondary" onclick="showScene('intro')">Мммм... 🤔</button>
+            </div>
+        </div>
+
+        <!-- Сцена 1: Початок -->
+        <div class="scene" id="scene1">
+            <h2 class="title">Наша історія 📖</h2>
+            <div class="story-text">
+                Тоді почнемо з самого початку...<br><br>
+                З того дня, коли все почалося.
+            </div>
+            <button class="btn" onclick="showScene('scene2')">Продовжити ✨</button>
+        </div>
+
+        <!-- Сцена 2: 7 клас - Перша зустріч -->
+        <div class="scene" id="scene2">
+            <h2 class="title">7 клас ⚡</h2>
+            <div class="photo-container">
+                <img src="assets/images/class7.jpg" alt="7 клас" class="memory-photo" onerror="this.style.display='none'">
+                
+            </div>
+            <div class="story-text">
+                Ми вперше зустрілися...<br><br>
+                Урок фізики. Армрестлінг.<br><br>
+                Тоді я навіть не міг уявити, що тільки що мене у армрестлінгу перемогла <strong>майбутня дівчина</strong>. 💪
+            </div>
+            <button class="btn" onclick="showScene('scene3')">Далі 💫</button>
+        </div>
+
+        <!-- Сцена 3: 9 клас - Подорож -->
+        <div class="scene" id="scene3">
+            <h2 class="title">9 клас 💕</h2>
+            <div class="photo-container">
+                <img src="assets/images/class9.jpg" alt="9 клас" class="memory-photo" onerror="this.style.display='none'">
+            </div>
+            <div class="story-text">
+                Ми зустрілися вперше за довгий час...<br><br>
+                Це була подорож разом з класом.<br><br>
+                Ми з тобою гуляли окремо від інших, спілкуючись на різні теми.<br><br>
+                І там я в тебе <strong>закохався вже вдруге</strong>. ❤️
+            </div>
+            <button class="btn" onclick="showScene('scene4')">Продовжити 🌟</button>
+        </div>
+
+        <!-- Сцена 4: Початок війни -->
+        <div class="scene" id="scene4">
+            <h2 class="title">Початок війни... 🕊️</h2>
+            <div class="photo-container">
+                <img src="assets/images/war.jpg" alt="Той час" class="memory-photo" onerror="this.style.display='none'">
+            </div>
+            <div class="story-text">
+                Навіть згадуючи той час, я його згадую з теплом...<br><br>
+                Тому що в той час ми почали спілкуватись як раніше ніколи не спілкувались.<br><br>
+                Тут я цього не розумів, але я вже почав <strong>закохуватись утретє</strong>... 💭
+            </div>
+            <button class="btn" onclick="showScene('scene5')">Далі 🌙</button>
+        </div>
+
+        <!-- Сцена 5: Рік спілкування і поїздка -->
+        <div class="scene" id="scene5">
+            <h2 class="title">Більше року... ⏰</h2>
+            <div class="photo-container">
+                <img src="assets/images/trip.jpg" alt="Поїздка" class="memory-photo" onerror="this.style.display='none'">
+            </div>
+            <div class="story-text">
+                В такому темпі ми проспілкувались більше року...<br><br>
+                І тут я не витримав.<br><br>
+                Зрозумів, що я не можу більше чекати, і тим більше <strong>не можу тебе втратити</strong>.<br><br>
+                Тому я кидаю все і їду до тебе (на розвідку) 🚂
+            </div>
+            <button class="btn" onclick="showScene('scene6')">... 💕</button>
+        </div>
+
+        <!-- Сцена 6: ВОНА СКАЗАЛА ТАК (з прихованою кнопкою) -->
+        <div class="scene" id="scene6">
+            <h2 class="title">
+                <span class="secret-button" onclick="showScene('finalQuestion')">ТАЄМНИЦЯ ТУТ!^^</span>
+            </h2>
+            <div class="photo-container">
+                <img src="assets/images/together.jpg" alt="Разом" class="memory-photo" onerror="this.style.display='none'">
+            </div>
+            <div class="story-text">
+                Анаіда стала моєю дівчиною, ми покохали один одного.<br><br>
+                З того моменту і до теперішнього часу моє серце належало <strong>тобі і тільки тобі</strong>. ❤️<br><br>
+                <small style="opacity: 0.6;">(Натискай далі, щоб продовжити...)</small>
+            </div>
+            <button class="btn" onclick="showScene('quiz1')">Далі 💫</button>
+        </div>
+
+        <!-- Питання 1 -->
+        <div class="scene" id="quiz1">
+            <h2 class="title">Питання 1 ❓</h2>
+            <div class="story-text">
+                <p class="quiz-question">Ти моя кохана квіточка?</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-yes" onclick="showScene('quiz2')">Так! ❤️</button>
+                <button class="btn btn-no" onclick="showScene('quiz1')">Ні 💔</button>
+            </div>
+        </div>
+
+        <!-- Питання 2 -->
+        <div class="scene" id="quiz2">
+            <h2 class="title">Питання 2 ❓</h2>
+            <div class="story-text">
+                <p class="quiz-question">Ти моя найчарівніша дівчинка в світі?(ТАК!!)</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-yes" onclick="showScene('quiz3')">АВЖЕЖ! 💕</button>
+                <button class="btn btn-no" onclick="showScene('quiz2')">Ні 😢</button>
+            </div>
+        </div>
+
+        <!-- Питання 3 - про помилку -->
+        <div class="scene" id="quiz3">
+            <h2 class="title">Питання 3 ❓</h2>
+            <div class="story-text">
+                <p class="quiz-question">Ти помітила... на слайді про подород щось не так...</p>
+                <p style="font-size: 0.9em; opacity: 0.7; margin-top: 20px;">Підказка: повернись і уважно подивись на заголовок 😉</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-yes" onclick="showScene('scene6')">Так! 🔍</button>
+                <button class="btn btn-no" onclick="showScene('quiz3')">Ні 🤔</button>
+            </div>
+        </div>
+
+        <!-- Прихована сцена: Перше питання -->
+        <div class="scene" id="finalQuestion">
+            <h2 class="title">💕</h2>
+            <div class="story-text">
+                <p class="big-question">Чи готова ти почути те, що я хочу в тебе запитати?</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showScene('proposal')">Так! 💖</button>
+                <button class="btn btn-secondary" onclick="showScene('finalQuestion')">Ще ні... 😊</button>
+            </div>
+        </div>
+
+        <!-- ГОЛОВНА ПРОПОЗИЦІЯ -->
+        <div class="scene" id="proposal">
+            <h1 class="title proposal-title">Сонечко...</h1>
+            <div class="story-text proposal-text">
+                <p class="big-question final-question">
+                    Чи станеш ти моєю дівчиною, Анаіда? 💍
+                </p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary btn-big" onclick="showScene('final')">ТАК!!! ❤️❤️❤️</button>
+                <button class="btn btn-secondary" onclick="showScene('proposal')">Подумаю... 🤔</button>
+            </div>
+        </div>
+
+        <!-- Фінальна сцена - тільки картинка -->
+        <div class="scene" id="final">
+            <div class="final-image-container">
+                <img src="assets/images/final.jpg" alt="Ми назавжди" class="final-image" onerror="this.style.display='none'">
+                <div class="final-placeholder">
+                    <div class="hearts-rain">
+                        💕 ❤️ 💖 💗 💝 💕 ❤️ 💖
+                    </div>
+                    <h1 style="font-size: 4em; margin: 20px 0;">💕</h1>
+                    <p style="font-size: 2em;">УРААААААААА</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/music/backgroun.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

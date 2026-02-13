@@ -1,0 +1,589 @@
+/* ============================================
+   БАЗОВІ СТИЛІ
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ff6b9d;
+    --secondary: #c44569;
+    --accent: #ffeaa7;
+    --dark: #2d3436;
+    --light: #fff5f5;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   КОНТЕЙНЕР ГРИ
+   ============================================ */
+
+.game-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 60px 50px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ЗАГОЛОВКИ
+   ============================================ */
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* ============================================
+   СЦЕНИ
+   ============================================ */
+
+.scene {
+    display: none;
+    animation: sceneEnter 0.8s ease-out;
+}
+
+.scene.active {
+    display: block;
+}
+
+@keyframes sceneEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   ТЕКСТ
+   ============================================ */
+
+.story-text {
+    font-size: 1.4em;
+    line-height: 1.8;
+    color: var(--dark);
+    margin: 30px 0;
+    text-align: center;
+    font-weight: 300;
+}
+
+.story-text strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.big-question {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--secondary);
+    text-align: center;
+    margin: 40px 0;
+    line-height: 1.6;
+}
+
+.quiz-question {
+    font-size: 1.6em;
+    font-weight: 500;
+    color: var(--dark);
+}
+
+/* ============================================
+   КНОПКИ
+   ============================================ */
+
+.btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 20px 35px;
+    font-size: 1.2em;
+    font-family: 'Cormorant Garamond', serif;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 20px auto;
+    min-width: 200px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.5);
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Різні стилі кнопок */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #a8a8a8, #6b6b6b);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #ff7675, #d63031);
+}
+
+.btn-big {
+    font-size: 1.5em;
+    padding: 25px 45px;
+    font-weight: 600;
+}
+
+/* ============================================
+   ФОТО
+   ============================================ */
+
+.photo-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.memory-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: block;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, #ffeaa7, #ff6b9d);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-weight: 600;
+}
+
+/* ============================================
+   СЕКРЕТНА КНОПКА (ВОНА СКАЗАЛА ТАК)
+   ============================================ */
+
+.secret-button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.secret-button:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgb(255, 107, 156);
+}
+
+.secret-button::after {
+    content: '✨';
+    position: absolute;
+    right: -30px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.secret-button:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   ПРОПОЗИЦІЯ (PROPOSAL)
+   ============================================ */
+
+.proposal-title {
+    font-size: 4em;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.proposal-text {
+    font-size: 1.6em;
+}
+
+.final-question {
+    font-size: 2em;
+    margin: 50px 0;
+}
+
+/* ============================================
+   ФІНАЛЬНА СЦЕНА
+   ============================================ */
+
+.final-image-container {
+    width: 100%;
+    text-align: center;
+}
+
+.final-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: finalGlow 2s ease-in-out infinite;
+}
+
+@keyframes finalGlow {
+    0%, 100% {
+        box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+    }
+    50% {
+        box-shadow: 0 20px 80px rgba(255, 107, 157, 0.6);
+    }
+}
+
+.final-placeholder {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(196, 69, 105, 0.1));
+    border-radius: 20px;
+    animation: celebration 3s ease-in-out infinite;
+}
+
+@keyframes celebration {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.hearts-rain {
+    font-size: 2em;
+    letter-spacing: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ============================================
+   АДАПТИВНІСТЬ (МОБІЛЬНІ ПРИСТРОЇ)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 40px 25px;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    .story-text {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        font-size: 1.1em;
+        padding: 15px 25px;
+        min-width: 150px;
+    }
+
+    .big-question {
+        font-size: 1.4em;
+    }
+
+    .photo-placeholder {
+        height: 250px;
+        font-size: 2em;
+    }
+
+    .proposal-title {
+        font-size: 3em;
+    }
+
+    .final-question {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .story-text {
+        font-size: 1.1em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+}
+
+/* ============================================
+   ДОДАТКОВІ ЕФЕКТИ
+   ============================================ */
+
+.sparkle {
+    display: inline-block;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+    }
+}
+
+/* Плавна поява елементів */
+.scene.active .title,
+.scene.active .story-text,
+.scene.active .btn,
+.scene.active .photo-container {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   АНІМОВАНІ СЕРДЕЧКА НА ФОНІ
+   ============================================ */
+
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 25px;
+    opacity: 0;
+    animation: floatHeart 15s infinite ease-in-out;
+}
+
+/* Різні анімації для сердечок */
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Додаткові варіації анімацій */
+.floating-heart:nth-child(2n) {
+    animation-duration: 18s;
+    animation-delay: 2s;
+}
+
+.floating-heart:nth-child(3n) {
+    animation-duration: 12s;
+    animation-delay: 4s;
+}
+
+.floating-heart:nth-child(4n) {
+    animation-duration: 20s;
+    animation-delay: 1s;
+}
+
+.floating-heart:nth-child(5n) {
+    animation-duration: 16s;
+    animation-delay: 3s;
+}
+
+/* Альтернативна анімація - хвилясті рухи */
+@keyframes floatWave {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateY(75vh) translateX(-30px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(50vh) translateX(30px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(25vh) translateX(-30px) rotate(270deg);
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-heart.wave {
+    animation-name: floatWave;
+}
+
+/* Діагональна анімація */
+@keyframes floatDiagonal {
+    0% {
+        transform: translate(0, 100vh) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(200px, -10vh) rotate(720deg) scale(1);
+        opacity: 0;
+    }
+}
+
+.floating-heart.diagonal {
+    animation-name: floatDiagonal;
+}
+
